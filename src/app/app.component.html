@@ -1,0 +1,19 @@
+<hello name="{{ name }}"></hello>
+
+<div class="row_group" *ngFor="let box of boxes">
+  <div class="row" *ngFor="let row of box.row; index as z">
+    <div
+      [ngStyle]="{ 'background-color': box.row[z].color }"
+      [ngClass]="
+        box.row[z].x === response.x &&
+        box.row[z].y === response.y &&
+        box.row[z].result === response.result
+          ? 'selected'
+          : 'rectangle'
+      "
+    >
+      <p>{{ box.row[z].result }}</p>
+      <p>{{ box.row[z].predicate }}</p>
+    </div>
+  </div>
+</div>
